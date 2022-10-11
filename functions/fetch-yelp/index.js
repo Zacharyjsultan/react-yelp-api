@@ -7,7 +7,7 @@ const handler = async (event) => {
   try {
     const response = await fetch(
       // need to add ${search} to url
-      `https://api.yelp.com/v3/businesses/search?categories=restaurants&location=${zip}&term${search}`,
+      `https://api.yelp.com/v3/businesses/search?categories=restaurants&location=${zip}&term=${search}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
@@ -15,8 +15,6 @@ const handler = async (event) => {
       }
     );
     const data = await response.json();
-    // eslint-disable-next-line no-console
-    console.log(data);
     return {
       statusCode: 200,
       body: JSON.stringify(data.businesses),

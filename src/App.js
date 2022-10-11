@@ -6,8 +6,8 @@ import { fetchBusinesses } from './services/yelp';
 function App() {
   const [businesses, setBusinesses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [zip, setZip] = useState('');
   const [search, setSearch] = useState('');
-  const [zip, setZip] = useState('97202');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   const handleApi = async () => {
-    const data = await fetchBusinesses(search, zip);
+    const data = await fetchBusinesses(zip, search);
     setBusinesses(data);
     setLoading(false);
   };
@@ -44,7 +44,7 @@ function App() {
           <input
             value={search}
             type="text"
-            placeholder="Search..."
+            placeholder="Search...?"
             onChange={(e) => {
               setSearch(e.target.value);
             }}
