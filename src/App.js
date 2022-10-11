@@ -6,8 +6,10 @@ import { fetchBusinesses } from './services/yelp';
 function App() {
   const [businesses, setBusinesses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  const [zip, setZip] = useState('');
 
-  // TODO -- add state for zip / search and add event listeners to the inputs
+  // TODO --  and add event listeners to the inputs
 
   useEffect(() => {
     const fetchData = async () => {
