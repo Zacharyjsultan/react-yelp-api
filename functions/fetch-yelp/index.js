@@ -7,7 +7,7 @@ const handler = async (event) => {
   try {
     const response = await fetch(
       // need to add ${search} to url
-      `https://api.yelp.com/v3/businesses/search?categories=restaurants&location=${zip}`,
+      `https://api.yelp.com/v3/businesses/search?categories=restaurants&location=${zip}&term${search}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
